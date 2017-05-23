@@ -1,0 +1,49 @@
+<head>
+  <title>chat</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+</head>
+    <body bgcolor="#e3f2fd">
+      <div class="ui fixed inverted menu">
+        <div class="ui container">
+          <div href="#" class="header item">
+            <i class="code icon"></i>
+            Discussion Board
+          </div>
+
+        </div>
+      </div>
+      <div class="ui main text container">
+        <div class="ui huge header">Welcome to the Discussion Board</div>
+        
+      </div>
+
+    {{> hello}}
+
+</body>
+
+<template name="hello">
+  {{> loginButtons}}
+  <br/><br/>
+  <form class="chat-form">
+    <textarea rows="4" cols="50" name="message">
+      
+    </textarea>
+    <input type="submit" class="ui black button" value="Submit message" />
+  </form>
+
+  {{#unless currentUser}}
+  <h2>Please log in to post and see comments</h2>
+  {{/unless}}
+
+  {{#each messages}}
+    <dl>
+      <dt class="username">  {{username}}:</dt>
+        <dd class="chat-bubble"> {{text}} </dd>
+    </dl>
+  {{/each}} 
+
+
+</template>
+
